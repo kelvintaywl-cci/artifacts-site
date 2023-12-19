@@ -1,11 +1,24 @@
 version: 2.1
 
 jobs:
-  build:
+  store_artifacts:
+    parameters:
+      path:
+        type: string
     docker:
       - image: cimg/base:current
     resource_class: small
     steps:
       - checkout
       - store_artifacts:
-          path: static
+          path: << parameters.path >>
+      - run: echo done
+workflows:
+  main:
+    jobs:
+      - store_artifacts:
+          matrix:
+            parameters:
+              path:
+                - static
+                - does_not_exist
