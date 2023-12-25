@@ -1,2 +1,2 @@
 # artifacts-site
-Saving websites (HTML files, etc) as CircleCI artifacts
+Exlore saving websites (HTML files, etc) as CircleCI artifacts
